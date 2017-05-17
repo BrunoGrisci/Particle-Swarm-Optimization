@@ -4,7 +4,7 @@
 
 from PSO import PSO
 
-pop_size = 200
+pop_size = 10
 d = 3
 iterations = 200
 
