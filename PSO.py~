@@ -1,5 +1,6 @@
 #Bruno Iochins Grisci
-#05/2017
+#MAY/2017
+#Implementation of Particle Swarm Optimation based in the book "Essentials of Metaheuristics" by S. Luke
 
 import random
 import numpy as np
@@ -8,21 +9,21 @@ import copy
 
 class PSO:
 
-    minimization = False # If false minimizes, if True maximizes
-
     swarm_size = 0 # Number of particles to be used.
     dimensions = 0 # Number of dimensions of each particle.
     number_informants = 0 # Number of particles to take into account.
     
-    lower_bounds = [] # List -> dimensions x 1
-    upper_bounds = [] # List -> dimensions x 1 
+    lower_bounds = [] # List -> dimensions x 1 (can also be passed as a float, in this case the number is given as boundary to all dimensions)
+    upper_bounds = [] # List -> dimensions x 1 (can also be passed as a float, in this case the number is given as boundary to all dimensions)
     
-    movement_step = 0 # How fast the particle moves. If movement_step is large, the particles make big jumps towards the better areas—and can jump over them by accident. Thus a big movement_step allows the system to move quickly to best-known regions, but makes it hard to do fine-grained optimization. Just like in hill-climbing. Most commonly, movement_step is set to 1.
+    movement_step = 0.0 # How fast the particle moves. If movement_step is large, the particles make big jumps towards the better areas and can jump over them by accident. Thus a big movement_step allows the system to move quickly to best-known regions, but makes it hard to do fine-grained optimization. Just like in hill-climbing. Most commonly, movement_step is set to 1.
     
-    momentum_coef = 0 # How much of the original velocity is retained.
-    personal_coef = 0 # How much of the personal best is mixed in. If personal_coef is large, particles tend to move more towards their own personal bests rather than towards global bests. This breaks the swarm into a lot of separate hill-climbers rather than a joint searcher.
-    informant_coef = 0 # How much of the informants’ best is mixed in. The effect here may be a mid-ground between personal_coef and global_coef. The number of informants is also a factor (assuming they’re picked at random): more informants is more like the global best and less like the particle’s local best.
-    global_coef = 0 # How much of the global best is mixed in. If global_coef is large, particles tend to move more towards the best known region. This converts the algorithm into one large hill-climber rather than separate hill-climbers. Perhaps because this threatens to make the system highly exploitative, global_coef is often set to 0 in modern implementations.
+    momentum_coef = 0.0 # How much of the original velocity is retained.
+    personal_coef = 0.0 # How much of the personal best is mixed in. If personal_coef is large, particles tend to move more towards their own personal bests rather than towards global bests. This breaks the swarm into a lot of separate hill-climbers rather than a joint searcher.
+    informant_coef = 0.0 # How much of the informants best is mixed in. The effect here may be a mid-ground between personal_coef and global_coef. The number of informants is also a factor (assuming theyre picked at random): more informants is more like the global best and less like the particles local best.
+    global_coef = 0.0 # How much of the global best is mixed in. If global_coef is large, particles tend to move more towards the best known region. This converts the algorithm into one large hill-climber rather than separate hill-climbers. Perhaps because this threatens to make the system highly exploitative, global_coef is often set to 0 in modern implementations.
+    
+    minimization = False # If True minimizes, if False maximizes
     
     swarm_location = [] # List of lists: swarm_size x dimensions -> location of each particle
     swarm_velocity = [] # List of lists: swarm_size x dimensions -> velocity of each particle
@@ -34,17 +35,45 @@ class PSO:
     best_location = [] # List: 1 x dimensions -> best location found globaly at any moment 
     best_score = None # Number -> best score found globaly at any moment
     
-    def __init__(self):
-        if not self.lower_bounds:
-            for i in xrange(self.dimensions):
-                self.lower_bounds.append(sys.float_info.min)
-        if not self.upper_bounds:
-            for i in xrange(self.dimensions):
-                self.upper_bounds.append(sys.float_info.max)
-        #blablabla
+    def __init__(self, swarm_size, dimensions, n_in=6, lower_bounds=[], upper_bounds=[], movement_step=1.0, momentum_coef=1.0, personal_coef=1.0, informant_coef=1.0, global_coef=0.0, minimization=False):
+    
+        self.swarm_size = swarm_size
+        self.dimensions = dimensions
+        self.number_informants = n_in
+    
+        #This segment of the code is adapting the bound arguments
+        if type(lower_bounds) is list:
+            if len(lower_bounds) <= 0:
+                self.lower_bounds = [sys.float_info.min] * dimensions
+        else:
+            self.lower_bounds = [lower_bounds] * dimensions
+        if type(upper_bounds) is list:
+            if len(upper_bounds) <= 0:
+                self.upper_bounds = [sys.float_info.max] * dimensions
+                print(self.upper_bounds)
+        else:
+            self.upper_bounds = [upper_bounds] * dimensions
+    
+        self.movement_step = movement_step
+        self.momentum_coef = momentum_coef
+        self.personal_coef = personal_coef
+        self.informant_coef = informant_coef
+        self.global_coef = global_coef
+        self.minimization = minimization
+        
+        self.swarm_best_location = [None] * self.swarm_size
+        if self.minimization:
+            self.swarm_best_score = [sys.float_info.max] * self.swarm_size
+            self.best_score = sys.float_info.max
+        else:
+            self.swarm_best_score = [sys.float_info.min] * self.swarm_size
+            self.best_score = sys.float_info.min
+        self.best_location = [None] * self.dimensions
+        
         self.create_swarm()
         
     def create_swarm(self):
+        #Initializes the swarm with random locations and randon velocities
         for p in xrange(self.swarm_size):
             new_location = []
             new_velocity = []
@@ -58,17 +87,56 @@ class PSO:
                 new_velocity.append(v)
             self.swarm_location.append(new_location)
             self.swarm_velocity.append(new_velocity)
-    
-    
-    def update_scores(self, scores):
-        self.swarm_score = copy.deepcopy(scores)
         
     def update_velocity(self):
-        pass    
+        for p in xrange(self.swarm_size):
+            current_velocity = np.array(copy.deepcopy(self.swarm_velocity[p]))
+            current_location = np.array(copy.deepcopy(self.swarm_location[p]))
+            best_personal_location = np.array(copy.deepcopy(self.swarm_best_location[p]))
+            best_informant_location = np.array(self.get_informants_best_location(p))
+            best_global_location = np.array(copy.deepcopy(self.best_location))
+            
+            pc = self.personal_coef * np.random.random_sample((self.dimensions,))
+            ic = self.informant_coef * np.random.random_sample((self.dimensions,))
+            gc = self.global_coef * np.random.random_sample((self.dimensions,))
+            
+            new_vel = self.momentum_coef * current_velocity 
+            new_vel = new_vel + (pc * (best_personal_location - current_location))
+            new_vel = new_vel + (ic * (best_informant_location - current_location))
+            new_vel = new_vel + (gc * (best_global_location - current_location))
+            
+            #This segment of the code changes the velocity if the result does not respect the boundaries
+            new_velocity = copy.deepcopy(list(new_vel))
+            for d in xrange(self.dimensions):
+                if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) < self.lower_bounds[d]:
+                    reductor = (self.lower_bounds[d] - self.swarm_location[p][d]) / (self.movement_step * new_velocity[d])
+                    new_velocity[d] = new_velocity[d] * reductor                 
+                if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) > self.upper_bounds[d]: 
+                    reductor = (self.upper_bounds[d] - self.swarm_location[p][d]) / (self.movement_step * new_velocity[d])
+                    new_velocity[d] = new_velocity[d] * reductor 
+            
+            self.swarm_velocity[p] = new_velocity            
+                                       
+    def get_informants_best_location(self, particle_index):
+        #Uses a ring layout to define informants
+        best_index = particle_index
+        best_location = copy.deepcopy(self.swarm_best_location[best_index])
+        best_score = self.swarm_best_score[best_index]
+        for i in xrange(1, self.number_informants):
+            current_index = particle_index + i
+            if current_index >= self.swarm_size:
+                current_index = current_index - self.swarm_size 
+            if self.is_better(self.swarm_best_score[current_index], best_score):
+                best_index = current_index
+                best_location = copy.deepcopy(self.swarm_best_location[best_index])
+                best_score = self.swarm_best_score[best_index]
+        return best_location  
             
     def update_location(self):
-        pass
-            
+        current_locations = np.matrix(copy.deepcopy(self.swarm_location))
+        velocity = np.matrix(copy.deepcopy(self.swarm_velocity))
+        self.swarm_location = np.matrix.tolist(current_locations + (self.movement_step * velocity))
+                 
     def update_best(self):
         for p in xrange(self.swarm_size):
             if self.is_better(self.swarm_score[p], self.swarm_best_score[p]):
@@ -80,9 +148,38 @@ class PSO:
         
     def is_better(self, x, y):
         if self.minimization:
-            return x < y
+            return x <= y
         else:
-            return x > y
+            return x >= y
+            
+    def get_locations(self):
+        return self.swarm_location
         
-                
+    def get_velocities(self):
+        return self.swarm_velocity
+        
+    def get_best_locations(self):
+        return self.swarm_best_location
+        
+    def get_best_location(self):
+        return self.best_location
+        
+    def get_best_score(self):
+        return self.best_score
+        
+    def run_step(self, scores, movement_step=None):
+        self.swarm_score = copy.deepcopy(scores)
+        if movement_step is not None:
+            self.movement_step = movement_step
+            
+        print(self.swarm_best_location)
+            
+        self.update_best()
+        
+        print(self.swarm_best_location)
+        
+        self.update_velocity()
+        self.update_location()
+         
+        
             
