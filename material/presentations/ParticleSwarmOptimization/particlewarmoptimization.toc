@@ -2,5 +2,5 @@
 \select@language {brazilian}
 \beamer@sectionintoc {1}{Inspira\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
 \beamer@sectionintoc {2}{Caracter\IeC {\'\i }sticas}{4}{0}{2}
-\beamer@sectionintoc {3}{Pseudoc\IeC {\'o}digo}{5}{0}{3}
-\beamer@sectionintoc {4}{Aplica\IeC {\c c}\IeC {\~o}es}{6}{0}{4}
+\beamer@sectionintoc {3}{Pseudoc\IeC {\'o}digo}{6}{0}{3}
+\beamer@sectionintoc {4}{Aplica\IeC {\c c}\IeC {\~o}es}{7}{0}{4}

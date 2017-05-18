@@ -81,6 +81,7 @@
 \usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{amsmath}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -113,31 +114,51 @@ Universidade Federal do Rio Grande do Sul \\ % Your institution for the title pa
 %----------------------------------------------------------------------------------------
 
 %------------------------------------------------
-%\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{Inspiração} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
-
-%\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
 \frametitle{Paragraphs of Text}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
 \end{frame}
 
 %------------------------------------------------
+\section{Características} 
+%------------------------------------------------
 
 \begin{frame}
-\frametitle{Bullet Points}
+\frametitle{Características}
 \begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\item Criado na década de 1990;
+\item Método baseado em populações estáticas (enxame de partículas);
+\item Sem qualquer tipo de seleção;
+\item Utiliza mutação dirigida;
+\item Opera com métricas multidimensionais;
+\item Normalmente com valores reais;
+\item Partículas são mutadas em direção à melhor solução conhecida.
 \end{itemize}
 \end{frame}
 
+%------------------------------------------------
+\section{Pseudocódigo}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Pseudocódigo}
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{psocode.png}
+\end{figure}
+\footnotesize{
+Retirado de Essentials of Metaheuristics (Sean Luke, 2015).
+}
+\end{frame}
+
+%------------------------------------------------
+\section{Aplicações}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Paragraphs of Text}
+\end{frame}
 %------------------------------------------------
 
 \begin{frame}
