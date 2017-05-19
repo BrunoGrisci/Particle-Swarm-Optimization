@@ -205,7 +205,4 @@ class PSO:
             self.movement_step = movement_step
         self.update_best()
         self.update_velocity()
-        self.update_location()
-         
-        
-            
+        self.update_location()  

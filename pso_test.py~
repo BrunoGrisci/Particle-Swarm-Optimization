@@ -15,7 +15,7 @@ def evaluator(locations):
         scores.append(s)
     return scores
 
-pso = PSO(swarm_size=pop_size, dimensions=d, minimization=True)
+pso = PSO(swarm_size=pop_size, dimensions=d, lower_bounds=0, upper_bounds=1, minimization=False)
 for i in xrange(iterations):
     locations = pso.get_locations()
     scores = evaluator(locations)
