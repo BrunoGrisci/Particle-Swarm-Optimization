@@ -82,6 +82,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
+\usepackage{animate}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -89,7 +90,7 @@
 
 \title[PSO]{Particle Swarm Optimization} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{Bruno Grisci} % Your name
+\author{Bruno Iochins Grisci} % Your name
 \institute[UFRGS] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 Universidade Federal do Rio Grande do Sul \\ % Your institution for the title page
@@ -152,6 +153,7 @@ Técnica de otimização inspirada no comportamento de grupos de animais como ca
 
 \begin{frame}
  \frametitle{Exemplo}
+ \animategraphics[loop,controls,width=0.9\linewidth]{12}{ParticleSwarmArrowsAnimation-}{0}{99}
 \end{frame}
 
 
@@ -162,7 +164,7 @@ Técnica de otimização inspirada no comportamento de grupos de animais como ca
 \begin{frame}
 \frametitle{Pseudocódigo}
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{psocode.png}
+\includegraphics[width=0.65\linewidth]{psocode.png}
 \end{figure}
 \footnotesize{
 Retirado de Essentials of Metaheuristics (Sean Luke, 2015).
@@ -175,16 +177,18 @@ Retirado de Essentials of Metaheuristics (Sean Luke, 2015).
 
 \begin{frame}
 \frametitle{Aplicações}
+Usos de PSO incluem:
 \begin{itemize}
-\item A;
-\item B;
-\item C;
+\item Treinamento de redes neurais;
+\item Telecomunicações;
+\item Sistemas de energia;
+\item Otimização combinatorial;
+\item Processamento de sinais;
 \end{itemize}
+A metaheurística é usada principalmente em problemas de otimização unimodais sem restrições, mas também foi demonstrada sua utilidade em problemas multi-objetivo, multimodais, com restrições e com variação dinâmica. 
 \end{frame}
 %------------------------------------------------
 
-
-%------------------------------------------------
 
 \begin{frame}
 \frametitle{Referências}

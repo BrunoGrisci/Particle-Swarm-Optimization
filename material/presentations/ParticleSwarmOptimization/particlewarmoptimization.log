@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.9)  18 MAY 2017 16:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.24)  18 MAY 2017 22:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **particlewarmoptimization.tex
 (./particlewarmoptimization.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+Babel <3.9h> and hyphenation patterns for 3 languages loaded.
 (/usr/share/texmf/tex/latex/beamer/base/beamer.cls
 (/usr/share/texmf/tex/latex/beamer/base/beamerbasercs.sty
 Package: beamerbasercs 2012/11/13 (rcs-revision cb16a617839f)
@@ -938,23 +938,87 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-(./particlewarmoptimization.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/animate/animate.sty
+Package: animate 2014/02/11 PDF animations from files and inline graphics
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty
+Package: ifdraft 2008/08/11 v1.3 Detect class options draft and final (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count158
+\calc@Bcount=\count159
+\calc@Adimen=\dimen199
+\calc@Bdimen=\dimen200
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count160
+\calc@Cskip=\skip59
+)
+(/usr/share/texlive/texmf-dist/tex/latex/animate/animfp.sty
+Package: animfp 2009/07/23 fixed point addition for animate.sty
+\afp@xs=\count161
+\afp@xia=\count162
+\afp@xib=\count163
+\afp@xfa=\count164
+\afp@xfb=\count165
+\afp@rega=\count166
+\afp@regb=\count167
+\afp@regs=\count168
+)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count169
+\scratchdimen=\dimen201
+\scratchbox=\box53
+\nofMPsegments=\count170
+\nofMParguments=\count171
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count172
+\MPscratchDim=\dimen202
+\MPnumerator=\count173
+\makeMPintoPDFobject=\count174
+\everyMPtoPDFconversion=\toks43
+)
+\@anim@box=\box54
+\@anim@tmpdima=\dimen203
+\@anim@tmpdimb=\dimen204
+\@anim@num=\count175
+\@anim@curframe=\count176
+\@anim@curframe@zb=\count177
+\@anim@resize=\count178
+\@anim@skipfram=\count179
+\@anim@mulframecnt=\count180
+\@anim@@tmlnfile=\read2
+\@anim@tmpcnt=\count181
+\c@@anim@ltxcnt=\count182
+\@anim@curlayer=\count183
+\@anim@lineno=\count184
+\@anim@curfield=\count185
+\@anim@begin=\toks44
+\@anim@end=\toks45
+) (./particlewarmoptimization.aux)
 \openout1 = `particlewarmoptimization.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -990,20 +1054,7 @@ LaTeX Font Info:    ... okay on input line 101.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count158
-\scratchdimen=\dimen199
-\scratchbox=\box53
-\nofMPsegments=\count159
-\nofMParguments=\count160
-\everyMPshowfont=\toks42
-\MPscratchCnt=\count161
-\MPscratchDim=\dimen200
-\MPnumerator=\count162
-\makeMPintoPDFobject=\count163
-\everyMPtoPDFconversion=\toks43
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -1019,8 +1070,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 101.
+\AtBeginShipoutBox=\box55
+Package hyperref Info: Link coloring OFF on input line 102.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1028,58 +1079,58 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count164
+\c@section@level=\count186
 )
-LaTeX Info: Redefining \ref on input line 101.
-LaTeX Info: Redefining \pageref on input line 101.
-LaTeX Info: Redefining \nameref on input line 101.
+LaTeX Info: Redefining \ref on input line 102.
+LaTeX Info: Redefining \pageref on input line 102.
+LaTeX Info: Redefining \nameref on input line 102.
 
 (./particlewarmoptimization.out) (./particlewarmoptimization.out)
 \@outlinefile=\write5
 \openout5 = `particlewarmoptimization.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 101.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 102.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 101.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 102.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 101.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 101.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 102.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 101.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 101.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 101.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 102.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 101.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 101.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 101.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 102.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 101.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 101.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 101.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 102.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 101.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 101.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 102.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 101.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 102.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 101.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 101.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 101.
+(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 101.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 101.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 102.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 101.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 102.
 
 (/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-basic-dicti
 onary/translator-basic-dictionary-English.dict
@@ -1105,12 +1156,12 @@ Dictionary: translator-numbers-dictionary, Language: English
 tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 101.
+LaTeX Info: Redefining \includegraphics on input line 102.
 
 (./particlewarmoptimization.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 105.
+(Font)              size <5> substituted on input line 106.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1121,33 +1172,86 @@ LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
 <birds.jpg, id=120, 702.625pt x 526.96875pt>
 File: birds.jpg Graphic file (type jpg)
  <use birds.jpg>
-Package pdftex.def Info: birds.jpg used on input line 134.
+Package pdftex.def Info: birds.jpg used on input line 135.
 (pdftex.def)             Requested size: 122.91406pt x 92.1807pt.
 
 <fish.jpg, id=121, 642.4pt x 427.5975pt>
 File: fish.jpg Graphic file (type jpg)
  <use fish.jpg>
-Package pdftex.def Info: fish.jpg used on input line 134.
+Package pdftex.def Info: fish.jpg used on input line 135.
 (pdftex.def)             Requested size: 122.91406pt x 81.812pt.
  [3
 
  <./birds.jpg> <./fish.jpg>] [4
 
-] [5
+] <./ParticleSwarmArrowsAnimation-0.png> <./ParticleSwarmArrowsAnimation-1.png>
+ <./ParticleSwarmArrowsAnimation-2.png> <./ParticleSwarmArrowsAnimation-3.png> 
+<./ParticleSwarmArrowsAnimation-4.png> <./ParticleSwarmArrowsAnimation-5.png> <
+./ParticleSwarmArrowsAnimation-6.png> <./ParticleSwarmArrowsAnimation-7.png> <.
+/ParticleSwarmArrowsAnimation-8.png> <./ParticleSwarmArrowsAnimation-9.png> <./
+ParticleSwarmArrowsAnimation-10.png> <./ParticleSwarmArrowsAnimation-11.png> <.
+/ParticleSwarmArrowsAnimation-12.png> <./ParticleSwarmArrowsAnimation-13.png> <
+./ParticleSwarmArrowsAnimation-14.png> <./ParticleSwarmArrowsAnimation-15.png> 
+<./ParticleSwarmArrowsAnimation-16.png> <./ParticleSwarmArrowsAnimation-17.png>
+ <./ParticleSwarmArrowsAnimation-18.png> <./ParticleSwarmArrowsAnimation-19.png
+> <./ParticleSwarmArrowsAnimation-20.png> <./ParticleSwarmArrowsAnimation-21.pn
+g> <./ParticleSwarmArrowsAnimation-22.png> <./ParticleSwarmArrowsAnimation-23.p
+ng> <./ParticleSwarmArrowsAnimation-24.png> <./ParticleSwarmArrowsAnimation-25.
+png> <./ParticleSwarmArrowsAnimation-26.png> <./ParticleSwarmArrowsAnimation-27
+.png> <./ParticleSwarmArrowsAnimation-28.png> <./ParticleSwarmArrowsAnimation-2
+9.png> <./ParticleSwarmArrowsAnimation-30.png> <./ParticleSwarmArrowsAnimation-
+31.png> <./ParticleSwarmArrowsAnimation-32.png> <./ParticleSwarmArrowsAnimation
+-33.png> <./ParticleSwarmArrowsAnimation-34.png> <./ParticleSwarmArrowsAnimatio
+n-35.png> <./ParticleSwarmArrowsAnimation-36.png> <./ParticleSwarmArrowsAnimati
+on-37.png> <./ParticleSwarmArrowsAnimation-38.png> <./ParticleSwarmArrowsAnimat
+ion-39.png> <./ParticleSwarmArrowsAnimation-40.png> <./ParticleSwarmArrowsAnima
+tion-41.png> <./ParticleSwarmArrowsAnimation-42.png> <./ParticleSwarmArrowsAnim
+ation-43.png> <./ParticleSwarmArrowsAnimation-44.png> <./ParticleSwarmArrowsAni
+mation-45.png> <./ParticleSwarmArrowsAnimation-46.png> <./ParticleSwarmArrowsAn
+imation-47.png> <./ParticleSwarmArrowsAnimation-48.png> <./ParticleSwarmArrowsA
+nimation-49.png> <./ParticleSwarmArrowsAnimation-50.png> <./ParticleSwarmArrows
+Animation-51.png> <./ParticleSwarmArrowsAnimation-52.png> <./ParticleSwarmArrow
+sAnimation-53.png> <./ParticleSwarmArrowsAnimation-54.png> <./ParticleSwarmArro
+wsAnimation-55.png> <./ParticleSwarmArrowsAnimation-56.png> <./ParticleSwarmArr
+owsAnimation-57.png> <./ParticleSwarmArrowsAnimation-58.png> <./ParticleSwarmAr
+rowsAnimation-59.png> <./ParticleSwarmArrowsAnimation-60.png> <./ParticleSwarmA
+rrowsAnimation-61.png> <./ParticleSwarmArrowsAnimation-62.png> <./ParticleSwarm
+ArrowsAnimation-63.png> <./ParticleSwarmArrowsAnimation-64.png> <./ParticleSwar
+mArrowsAnimation-65.png> <./ParticleSwarmArrowsAnimation-66.png> <./ParticleSwa
+rmArrowsAnimation-67.png> <./ParticleSwarmArrowsAnimation-68.png> <./ParticleSw
+armArrowsAnimation-69.png> <./ParticleSwarmArrowsAnimation-70.png> <./ParticleS
+warmArrowsAnimation-71.png> <./ParticleSwarmArrowsAnimation-72.png> <./Particle
+SwarmArrowsAnimation-73.png> <./ParticleSwarmArrowsAnimation-74.png> <./Particl
+eSwarmArrowsAnimation-75.png> <./ParticleSwarmArrowsAnimation-76.png> <./Partic
+leSwarmArrowsAnimation-77.png> <./ParticleSwarmArrowsAnimation-78.png> <./Parti
+cleSwarmArrowsAnimation-79.png> <./ParticleSwarmArrowsAnimation-80.png> <./Part
+icleSwarmArrowsAnimation-81.png> <./ParticleSwarmArrowsAnimation-82.png> <./Par
+ticleSwarmArrowsAnimation-83.png> <./ParticleSwarmArrowsAnimation-84.png> <./Pa
+rticleSwarmArrowsAnimation-85.png> <./ParticleSwarmArrowsAnimation-86.png> <./P
+articleSwarmArrowsAnimation-87.png> <./ParticleSwarmArrowsAnimation-88.png> <./
+ParticleSwarmArrowsAnimation-89.png> <./ParticleSwarmArrowsAnimation-90.png> <.
+/ParticleSwarmArrowsAnimation-91.png> <./ParticleSwarmArrowsAnimation-92.png> <
+./ParticleSwarmArrowsAnimation-93.png> <./ParticleSwarmArrowsAnimation-94.png> 
+<./ParticleSwarmArrowsAnimation-95.png> <./ParticleSwarmArrowsAnimation-96.png>
+ <./ParticleSwarmArrowsAnimation-97.png> <./ParticleSwarmArrowsAnimation-98.png
+> <./ParticleSwarmArrowsAnimation-99.png>
+\@anim@@fields=\count187
+ [5
 
-] <psocode.png, id=210, 985.6825pt x 843.15pt>
+]
+<psocode.png, id=940, 985.6825pt x 843.15pt>
 File: psocode.png Graphic file (type png)
  <use psocode.png>
-Package pdftex.def Info: psocode.png used on input line 170.
-(pdftex.def)             Requested size: 215.10196pt x 183.98831pt.
-
-[6
+Package pdftex.def Info: psocode.png used on input line 172.
+(pdftex.def)             Requested size: 199.73653pt x 170.85272pt.
+ [6
 
  <./psocode.png>] [7
 
 ] [8
 
- </usr/share/texmf/tex/latex/beamer/base/art/beamericonarticle.pdf>] [9
+ </usr/share/texmf/tex/latex/beamer/base/art/beamericonarticle.pdf>]
+[9
 
 ]
 \tf@nav=\write6
@@ -1159,11 +1263,11 @@ Package pdftex.def Info: psocode.png used on input line 170.
 \tf@snm=\write8
 \openout8 = `particlewarmoptimization.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 212.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 212.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
  (./particlewarmoptimization.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 212.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 212.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
 Package rerunfilecheck Info: File `particlewarmoptimization.out' has not change
 d.
 (rerunfilecheck)             Checksum: 64807DFA7514EC004899C2987E6BA649;205.
@@ -1172,27 +1276,27 @@ d.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
  ) 
 Here is how much of TeX's memory you used:
- 16520 strings out of 493304
- 302099 string characters out of 6139871
- 384626 words of memory out of 5000000
- 19548 multiletter control sequences out of 15000+600000
+ 17636 strings out of 495004
+ 321664 string characters out of 6180662
+ 408501 words of memory out of 5000000
+ 20306 multiletter control sequences out of 15000+600000
  11271 words of font info for 25 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 49i,16n,60p,413b,656s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
-fonts/type1/public/cm-super/sfsi0800.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfsi0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfss2488.pfb>
-Output written on particlewarmoptimization.pdf (9 pages, 715011 bytes).
+ 16 hyphenation exceptions out of 8191
+ 49i,16n,61p,413b,663s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/bruno/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss2488.600pk> </home/b
+runo/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </home/bruno/.texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk> </home/bruno/.texmf-var/fonts/
+pk/ljfour/jknappen/ec/ecsi0800.600pk> </home/bruno/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecss0800.600pk> </home/bruno/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecss1095.600pk> </home/bruno/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1440.60
+0pk> </home/bruno/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.600pk>
+Output written on particlewarmoptimization.pdf (9 pages, 4749158 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
- 326 compressed objects within 4 object streams
+ 1310 PDF objects out of 1440 (max. 8388607)
+ 648 compressed objects within 7 object streams
  24 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1890 words of extra memory for PDF output out of 10000 (max. 10000000)
 
