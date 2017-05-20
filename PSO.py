@@ -101,8 +101,8 @@ class PSO:
                     ub = self.upper_bounds[d]
                 else:
                     ub = 1000000000000000.0
-                print(lb, ub)
-                print(random.uniform(lb, ub))
+                #print(lb, ub)
+                #print(random.uniform(lb, ub))
          
                 if self.l_boundaries or self.u_boundaries:
                     l = random.uniform(lb, ub)
