@@ -78,8 +78,8 @@ class PDB_reader:
                 aux_pos.append(self.atoms_pos.pop(i))
             else:
                 print(atom)
-       self.atoms = copy.deepcopy(aux_atoms)
-       self.atoms_pos = copy.deepcopy(aux_pos)
+        self.atoms = copy.deepcopy(aux_atoms)
+        self.atoms_pos = copy.deepcopy(aux_pos)
                 
                 
        

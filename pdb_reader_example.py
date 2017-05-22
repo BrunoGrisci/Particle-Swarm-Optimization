@@ -6,6 +6,7 @@ from pdb_reader import PDB_reader
 
 pdb_ref = PDB_reader("material/reference.pdb")
 pdb_mob = PDB_reader("material/1ACW-01.pdb")
+pdb_mob.match_atoms(pdb_ref.get_atoms())
 print(len(pdb_ref.get_atoms()), len(pdb_mob.get_atoms()))
 print(len(pdb_ref.get_all_pos()), len(pdb_mob.get_all_pos()))
 print(len(pdb_ref.get_backbone_pos()), len(pdb_mob.get_backbone_pos()))
@@ -13,5 +14,6 @@ print(len(pdb_ref.get_ca_pos()), len(pdb_mob.get_ca_pos()))
 
 print(pdb_ref.get_ca_pos())
 print(pdb_mob.get_ca_pos())
-print(pdb_ref.get_atoms())
+for pa in zip(pdb_ref.get_atoms(), pdb_mob.get_atoms()):
+    print(pa)
 
