@@ -72,6 +72,15 @@ class PDB_reader:
         aux_atoms = []
         aux_pos = []
         for atom in ref_atoms:
-            pass
+            if atom in self.atoms:
+                i = self.atoms.index(atom)
+                aux_atoms.append(self.atoms.pop(i))
+                aux_pos.append(self.atoms_pos.pop(i))
+            else:
+                print(atom)
+       self.atoms = copy.deepcopy(aux_atoms)
+       self.atoms_pos = copy.deepcopy(aux_pos)
+                
+                
        
     
