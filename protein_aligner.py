@@ -1,9 +1,11 @@
 #Bruno Iochins Grisci
 #MAY/2017
+#Usage: python protein_aligner.py reference_file mobile_file atoms_type
 
 import math
 import numpy as np
 import copy
+import sys
 
 from PSO import PSO
 from pdb_reader import PDB_reader
@@ -41,22 +43,66 @@ def evaluator(solutions, ref_atoms, mob_atoms):
         scores.append(score)
     return scores
 
+reference_file = sys.argv[1]
+mobile_file = sys.argv[2]
+atoms = sys.argv[3]
+
 pop_size = 200
 dim = 6
-iterations = 10000  
+min_iterations = 1000
+initial_lr = 1.0
+lr = initial_lr
     
-pdb_ref = PDB_reader("material/reference.pdb")
-pdb_mob = PDB_reader("material/1ACW-01.pdb")
+pdb_ref = PDB_reader(reference_file)
+pdb_mob = PDB_reader(mobile_file)
 
 #print rmsd([], pdb_ref.get_all_pos(), pdb_mob.get_all_pos())
 
 latest_best_scores = []
     
-pso = PSO(swarm_size=pop_size, dimensions=dim, lower_bounds=[-100.0, -100.0, -100.0, 0.0, 0.0, 0.0], upper_bounds=[100.0, 100.0, 100.0, 2.0*math.pi, 2.0*math.pi, 2.0*math.pi], minimization=True)
-for i in xrange(iterations):
+pso = PSO(swarm_size=pop_size, dimensions=dim, lower_bounds=[-100.0, -100.0, -100.0, 0.0, 0.0, 0.0], upper_bounds=[100.0, 100.0, 100.0, 2.0*math.pi, 2.0*math.pi, 2.0*math.pi], movement_step=initial_lr, minimization=True)
+
+#Start with regular loop 
+for i in xrange(min_iterations):
     locations = pso.get_locations()
-    scores = evaluator(locations, pdb_ref.get_ca_pos(), pdb_ref.get_ca_pos())
-    pso.run_step(scores, 0.1)
+    if atoms == "ca":
+        scores = evaluator(locations, pdb_ref.get_ca_pos(), pdb_mob.get_ca_pos())
+    elif atoms == "backbone":
+        scores = evaluator(locations, pdb_ref.get_backbone_pos(), pdb_mob.get_backbone_pos())
+    elif atoms == "all":
+        scores = evaluator(locations, pdb_ref.get_all_pos(), pdb_mob.get_all_pos())
+    pso.run_step(scores, initial_lr)
+print(pso.get_best_location())
+print(pso.get_best_score())
+print("Finished first run")
+
+#Try to optimize the initial best solution reducing the "learning" or movement rate
+little_i = 0    
+while lr >= initial_lr/16.0:
+    locations = pso.get_locations()
+    if atoms == "ca":
+        scores = evaluator(locations, pdb_ref.get_ca_pos(), pdb_mob.get_ca_pos())
+    elif atoms == "backbone":
+        scores = evaluator(locations, pdb_ref.get_backbone_pos(), pdb_mob.get_backbone_pos())
+    elif atoms == "all":
+        scores = evaluator(locations, pdb_ref.get_all_pos(), pdb_mob.get_all_pos())
+    pso.run_step(scores, lr)
+    
+    latest_best_scores.append(pso.get_best_score())
+    if len(latest_best_scores) > 100:
+        latest_best_scores.pop(0)
+        
+    if little_i > 101:
+        improvement = (latest_best_scores[0] - latest_best_scores[-1])/latest_best_scores[0]
+        if improvement < 0.01 and lr >= initial_lr/16.0:
+            print(little_i, lr) 
+            print(pso.get_best_score())
+            lr = lr/2.0
+            latest_best_scores = []
+            little_i = 0
+    
+    little_i += 1
+    
 print(pso.get_best_location())
 print(pso.get_best_score())
     
