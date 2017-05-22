@@ -67,5 +67,11 @@ class PDB_reader:
             if self.atoms[a] == self.ALPHA_CARBON:
                 ca_pos.append(self.atoms_pos[a])
         return copy.deepcopy(ca_pos)
+        
+    def match_atoms(self, ref_atoms):
+        aux_atoms = []
+        aux_pos = []
+        for atom in ref_atoms:
+            pass
        
     
