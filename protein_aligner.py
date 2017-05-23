@@ -55,8 +55,7 @@ lr = initial_lr
     
 pdb_ref = PDB_reader(reference_file)
 pdb_mob = PDB_reader(mobile_file)
-
-#print rmsd([], pdb_ref.get_all_pos(), pdb_mob.get_all_pos())
+pdb_mob.match_atoms(pdb_ref.get_atoms(), pdb_ref.get_amino_acids())
 
 latest_best_scores = []
     
