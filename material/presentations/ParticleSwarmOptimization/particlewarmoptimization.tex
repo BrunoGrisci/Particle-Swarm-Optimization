@@ -209,10 +209,14 @@ A metaheurística é usada principalmente em problemas de otimização unimodais
 \begin{frame}
 \frametitle{Representação}
 Para n átomos:
+
 location = [x, y, z, x, y, z]
+
 velocity = [x, y, z, x, y, z]
-locations = Mnx6
-velocities = Mnx6
+
+locations = M[n][6]
+
+velocities = M[n][6]
 \end{frame}
 
 \begin{frame}
@@ -257,15 +261,15 @@ Alinha os átomos de dois arquivos .pdb.
 \begin{table}[]
 \centering
 \label{my-label}
-\begin{tabular}{llll}
-          & BACKBONE          & CA            & ALL               \\
-REFERENCE & 0.0002 & 5.84E-007     & 0.0002 \\
-1ACW-01   & 13.5292     & 13.5886 & 14.5882     \\
-1ACW-02   & 14.1559     & 14.2188 & 14.8492      \\
-1ACW-03   & 11.5880     & 11.7586 & 12.4787     \\
-1ACW-04   & 12.3860     & 12.3765 & 13.1628     \\
-1ACW-05   & 12.6750     & 12.7391 & 13.6928     \\
-1ACW-06   & 15.6788     & 15.7296 & 16.2010                     
+\begin{tabular}{lllll}
+          & BACKBONE          & CA            & ALL    & PYMOL           \\
+REFERENCE & 0.0002 & 5.84E-007     & 0.0002 & 0.000 \\
+1ACW-01   & 13.5292     & 13.5886 & 14.5882 & 13.570   \\
+1ACW-02   & 14.1559     & 14.2188 & 14.8492 & 14.216    \\
+1ACW-03   & 11.5880     & 11.7586 & 12.4787 & 11.758   \\
+1ACW-04   & 12.3860     & 12.3765 & 13.1628 & 6.827  \\
+1ACW-05   & 12.6750     & 12.7391 & 13.6928 & 11.730   \\
+1ACW-06   & 15.6788     & 15.7296 & 16.2010 & 15.729                   
 \end{tabular}
 \end{table}
 \end{frame}
