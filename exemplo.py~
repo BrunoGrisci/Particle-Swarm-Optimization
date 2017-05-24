@@ -1,0 +1,43 @@
+#Bruno Iochins Grisci
+#MAY/2017
+
+from cec2013.cec2013 import *
+from PSO import PSO
+
+import random 
+
+###### Case 15: Composition Function 4 - Dimension 3 ######
+dimension = 3
+number_function = 15
+min_val = -5
+max_val = 5
+
+pop_size = 200
+iterations = 1000
+
+def evaluator(solutions, scorefxn):
+    scores = []
+    for solution in solutions:
+        score = scorefxn.evaluate(solution)
+        scores.append(score)
+    return scores
+    
+###################################################################
+
+scorefxn = CEC2013(number_function) # inicializando a funcao de fitness
+pso = PSO(swarm_size=pop_size, dimensions=dimension, lower_bounds=-5.0, upper_bounds=5.0, minimization=False)
+
+#Start with regular loop 
+for i in xrange(min_iterations):
+    locations = pso.get_locations()
+    if atoms == "ca":
+        scores = evaluator(locations, pdb_ref.get_ca_pos(), pdb_mob.get_ca_pos())
+    elif atoms == "backbone":
+        scores = evaluator(locations, pdb_ref.get_backbone_pos(), pdb_mob.get_backbone_pos())
+    elif atoms == "all":
+        scores = evaluator(locations, pdb_ref.get_all_pos(), pdb_mob.get_all_pos())
+    pso.run_step(scores, initial_lr)
+print(pso.get_best_location())
+print(pso.get_best_score())
+print("Finished first run")
+
