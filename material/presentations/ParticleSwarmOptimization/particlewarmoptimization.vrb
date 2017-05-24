@@ -1,4 +1,22 @@
-\frametitle{Citation}
-An example of the \verb|\cite| command to cite within the presentation:\\~
+\frametitle{Controle dos limites}
+Novas velocidades podem gerar soluções fora do espaço de busca permitido.
+\begin{verbatim}
+#This segment of the code changes the velocity if the result does not respect the boundaries
+new_velocity = copy.deepcopy(list(new_vel))
+for d in xrange(self.dimensions):
+    if self.l_boundaries:
+if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) < self.lower_bounds[d]:
+    if (self.movement_step * new_velocity[d]) != 0.0:
+reductor = (self.lower_bounds[d] - self.swarm_location[p][d]) / (self.movement_step * new_velocity[d]) * 0.99
+new_velocity = [di * reductor for di in new_velocity] #reductor multiplied to all dimensions in order to preserve velocity direction
+    if self.u_boundaries:
+if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) > self.upper_bounds[d]:
+    if (self.movement_step * new_velocity[d]) != 0.0:
+reductor = (self.upper_bounds[d] - self.swarm_location[p][d]) / (self.movement_step * new_velocity[d]) * 0.99
+new_velocity = [di * reductor for di in new_velocity] #reductor multiplied to all dimensions in order to preserve velocity direction
+\end{verbatim}
+\end{frame}[fragile]
 
-This statement requires citation \cite{p1}.
+\begin{frame}
+\frametitle{Controle do laço}
+

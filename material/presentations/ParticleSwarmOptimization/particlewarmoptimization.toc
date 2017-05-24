@@ -4,3 +4,6 @@
 \beamer@sectionintoc {2}{Caracter\IeC {\'\i }sticas}{4}{0}{2}
 \beamer@sectionintoc {3}{Pseudoc\IeC {\'o}digo}{6}{0}{3}
 \beamer@sectionintoc {4}{Aplica\IeC {\c c}\IeC {\~o}es}{7}{0}{4}
+\beamer@sectionintoc {5}{Implementa\IeC {\c c}\IeC {\~a}o}{8}{0}{5}
+\beamer@sectionintoc {6}{Resultados}{14}{0}{6}
+\beamer@sectionintoc {7}{Refer\IeC {\^e}ncias}{15}{0}{7}

@@ -140,7 +140,6 @@ class PSO:
                     if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) < self.lower_bounds[d]:
                         if (self.movement_step * new_velocity[d]) != 0.0:
                             reductor = (self.lower_bounds[d] - self.swarm_location[p][d]) / (self.movement_step * new_velocity[d]) * 0.99
-                            #new_velocity[d] = new_velocity[d] * reductor
                             new_velocity = [di * reductor for di in new_velocity] #reductor multiplied to all dimensions in order to preserve velocity direction                         
                 if self.u_boundaries:                
                     if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) > self.upper_bounds[d]: 
