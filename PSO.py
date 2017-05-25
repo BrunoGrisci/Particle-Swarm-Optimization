@@ -38,7 +38,7 @@ class PSO:
     best_location = [] # List: 1 x dimensions -> best location found globaly at any moment 
     best_score = None # Number -> best score found globaly at any moment
     
-    def __init__(self, swarm_size, dimensions, n_in=6, lower_bounds=None, upper_bounds=None, movement_step=1.0, momentum_coef=1.0, personal_coef=1.0, informant_coef=1.0, global_coef=0.0, minimization=False):
+    def __init__(self, swarm_size, dimensions, n_in=6, lower_bounds=None, upper_bounds=None, movement_step=1.0, momentum_coef=0.729, personal_coef=2.05, informant_coef=2.05, global_coef=0.0, minimization=False):
     
         self.swarm_size = swarm_size
         self.dimensions = dimensions
