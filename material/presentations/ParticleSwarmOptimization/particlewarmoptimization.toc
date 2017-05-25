@@ -6,4 +6,5 @@
 \beamer@sectionintoc {4}{Aplica\IeC {\c c}\IeC {\~o}es}{7}{0}{4}
 \beamer@sectionintoc {5}{Implementa\IeC {\c c}\IeC {\~a}o}{8}{0}{5}
 \beamer@sectionintoc {6}{Resultados}{14}{0}{6}
-\beamer@sectionintoc {7}{Refer\IeC {\^e}ncias}{15}{0}{7}
+\beamer@sectionintoc {7}{Benchmark}{15}{0}{7}
+\beamer@sectionintoc {8}{Refer\IeC {\^e}ncias}{19}{0}{8}

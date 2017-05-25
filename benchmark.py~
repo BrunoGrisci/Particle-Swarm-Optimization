@@ -16,8 +16,8 @@ min_val = -5
 max_val = 5
 
 pop_size = 200
-iterations = 4
-runs = 10
+iterations = 10
+runs = 30
 
 animation = False
 analysys = True
@@ -51,11 +51,12 @@ runscore = []
 runscore_star = []
 runtime = []
 for r in xrange(runs):
-    #Start the regular loop 
-    pso = PSO(swarm_size=pop_size, dimensions=dimension, lower_bounds=-5.0, upper_bounds=5.0, movement_step=1.0, minimization=False)
-    best_scores = []
+    #Start the regular loop
     time0 = time.time()
-    for i in xrange(iterations):
+    best_scores = []
+    pso = PSO(swarm_size=pop_size, dimensions=dimension, lower_bounds=-5.0, upper_bounds=5.0, movement_step=1.0, minimization=False)     
+    
+    for i in xrange(iterations): 
         locations = pso.get_locations()
         scores = evaluator(locations, scorefxn)
         
@@ -64,12 +65,16 @@ for r in xrange(runs):
         
         pso.run_step(scores)
         best_scores.append(pso.get_best_score())
+        
     time1 = time.time()
-    runtime.append(time1 - time0)    
+    timeT = time1 - time0
+    runtime.append(timeT)    
     runscore.append(best_scores)
     runscore_star.append(pso.get_best_score())
     print(pso.get_best_location())
     print(pso.get_best_score())
+    print(timeT)
+    del pso
     print("Finished run " + str(r))
     
 print(runscore)

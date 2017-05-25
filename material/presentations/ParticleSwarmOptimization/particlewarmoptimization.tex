@@ -196,7 +196,7 @@ A metaheurística é usada principalmente em problemas de otimização unimodais
 \frametitle{Implementação}
 \begin{itemize}
 \item Python;
-\item Nunpy;
+\item Numpy;
 \item Orientado a Objetos:
 \begin{itemize}
 \item Modularidade;
@@ -210,9 +210,9 @@ A metaheurística é usada principalmente em problemas de otimização unimodais
 \frametitle{Representação}
 Para n átomos:
 
-location = [x, y, z, x, y, z]
+location = [tx, ty, tz, rx, ry, rz]
 
-velocity = [x, y, z, x, y, z]
+velocity = [tx, ty, tz, rx, ry, rz]
 
 locations = M[n][6]
 
@@ -287,13 +287,23 @@ REFERENCE & 0.0002 & 5.84E-007     & 0.0002 & 0.000 \\
 \item Melhor global: 0.0;
 \item Busca: [-5, 5];
 \item População: 200;
-\item Iterações: 2000;
+\item Iterações: 800;
 \item Execuções: 30
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Convergência}
+\frametitle{Convergência: 40 iterações}
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{convergence40.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Convergência: 2000 iterações}
+%\begin{figure}
+%\includegraphics[width=0.65\linewidth]{convergence2000.png}
+%\end{figure}
 \end{frame}
 
 \begin{frame}
