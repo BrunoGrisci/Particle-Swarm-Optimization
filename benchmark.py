@@ -16,7 +16,7 @@ min_val = -5
 max_val = 5
 
 pop_size = 200
-iterations = 500
+iterations = 600
 runs = 30
 
 animation = False
