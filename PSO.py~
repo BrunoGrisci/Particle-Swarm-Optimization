@@ -8,35 +8,6 @@ import sys
 import copy
 
 class PSO:
-
-    swarm_size = 0 
-    dimensions = 0 
-    number_informants = 0 
-    
-    lower_bounds = None 
-    upper_bounds = None 
-    l_boundaries = False 
-    u_boundaries = False 
-    
-    
-    movement_step = 0.0 
-    
-    momentum_coef = 0.0 
-    personal_coef = 0.0 
-    informant_coef = 0.0 
-    global_coef = 0.0 
-    
-    minimization = False 
-    
-    swarm_location = [] # List of lists: swarm_size x dimensions -> location of each particle
-    swarm_velocity = [] # List of lists: swarm_size x dimensions -> velocity of each particle
-    swarm_score = []    # List: swarm_size x 1 -> score of each particle
-    
-    swarm_best_location = [] # List of lists: swarm_size x dimensions -> best location found for each particle at any moment
-    swarm_best_score = [] # List: swarm_size x 1 -> best score found for each particle at any moment
-    
-    best_location = [] # List: 1 x dimensions -> best location found globaly at any moment 
-    best_score = None # Number -> best score found globaly at any moment
     
     def __init__(self, swarm_size, dimensions, n_in=6, lower_bounds=None, upper_bounds=None, movement_step=1.0, momentum_coef=0.729, personal_coef=2.05, informant_coef=2.05, global_coef=0.0, minimization=False):
     
