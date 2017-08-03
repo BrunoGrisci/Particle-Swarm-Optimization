@@ -9,16 +9,17 @@ import copy
 
 class PSO:
     
-    def __init__(self, swarm_size, dimensions, n_in=6, lower_bounds=None, upper_bounds=None, movement_step=1.0, momentum_coef=0.729, personal_coef=2.05*0.729, informant_coef=2.05*0.729, global_coef=0.0, minimization=False):
+    def __init__(self, swarm_size, dimensions, n_in=6, lower_bounds=None, upper_bounds=None, loops=False, movement_step=1.0, momentum_coef=0.729, personal_coef=2.05*0.729, informant_coef=2.05*0.729, global_coef=0.0, rps=True, rot_angle=0.62831853071, axes_rot_percent=0.4, minimization=False):
     
         self.swarm_size = swarm_size # Number of particles to be used.
         self.dimensions = dimensions # Number of dimensions of each particle.
         self.number_informants = n_in # Number of particles to take into account.
         
-        self.lower_bounds = None # List -> dimensions x 1 (can also be passed as a float, in this case the number is given as boundary to all dimensions)
-        self.upper_bounds = None # List -> dimensions x 1 (can also be passed as a float, in this case the number is given as boundary to all dimensions)
-        self.l_boundaries = False #True if there are lower boundaries
-        self.u_boundaries = False #True if there are upper boundaries
+        self.lower_bounds = None  # List -> dimensions x 1 (can also be passed as a float, in this case the number is given as boundary to all dimensions)
+        self.upper_bounds = None  # List -> dimensions x 1 (can also be passed as a float, in this case the number is given as boundary to all dimensions)
+        self.loops        = None  # List -> dimensions x 1 (can also be passed as a bool, in this case the bool is given as boundary to all dimensions)
+        self.l_boundaries = False # True if there are lower boundaries
+        self.u_boundaries = False # True if there are upper boundaries
     
         #This segment of the code is adapting the bound arguments
         if lower_bounds is None:      
@@ -44,12 +45,22 @@ class PSO:
         else:
             self.upper_bounds = [upper_bounds] * dimensions
             self.u_boundaries = True 
+
+        if type(loops) is list:
+            self.loops = copy.deepcopy(loops)
+        else:
+            self.loops = [loops] * dimensions     
         
         self.movement_step = movement_step # How fast the particle moves. If movement_step is large, the particles make big jumps towards the better areas and can jump over them by accident. Thus a big movement_step allows the system to move quickly to best-known regions, but makes it hard to do fine-grained optimization. Just like in hill-climbing. Most commonly, movement_step is set to 1.
         self.momentum_coef = momentum_coef # How much of the original velocity is retained.
         self.personal_coef = personal_coef # How much of the personal best is mixed in. If personal_coef is large, particles tend to move more towards their own personal bests rather than towards global bests. This breaks the swarm into a lot of separate hill-climbers rather than a joint searcher.
         self.informant_coef = informant_coef # How much of the informants best is mixed in. The effect here may be a mid-ground between personal_coef and global_coef. The number of informants is also a factor (assuming theyre picked at random): more informants is more like the global best and less like the particles local best.
         self.global_coef = global_coef # How much of the global best is mixed in. If global_coef is large, particles tend to move more towards the best known region. This converts the algorithm into one large hill-climber rather than separate hill-climbers. Perhaps because this threatens to make the system highly exploitative, global_coef is often set to 0 in modern implementations.
+        
+        self.rps = rps # If True uses the Rotated Particle Swarm (RPS) algorithm
+        self.rot_angle = rot_angle # Angle of rotation
+        self.axes_rot_percent = axes_rot_percent # Number of axes to be rotated by the percentage of the number of dimensions
+        
         self.minimization = minimization # If True minimizes, if False maximizes
         
         self.swarm_location = [] # List of lists: swarm_size x dimensions -> location of each particle
@@ -101,6 +112,24 @@ class PSO:
                 new_velocity.append(v)
             self.swarm_location.append(new_location)
             self.swarm_velocity.append(new_velocity)
+
+    def get_rotation_matrix(self, dim, theta, n_axes):
+        cos_theta = np.cos(theta)
+        sin_theta = np.sin(theta)
+        matrix = np.eye(dim)      
+        axes = random.sample(range(dim), int(n_axes) * 2)
+        for i in xrange(int(n_axes)):
+            a = axes[2*i]
+            b = axes[2*i+1]
+            if a > b:
+                c = b
+                b = a
+                a = c
+            matrix[a,a] = cos_theta
+            matrix[b,b] = cos_theta
+            matrix[b,a] = sin_theta
+            matrix[a,b] = -sin_theta
+        return matrix
         
     def update_velocity(self):
         for p in xrange(self.swarm_size):
@@ -114,20 +143,27 @@ class PSO:
             ic = self.informant_coef * np.random.random_sample((self.dimensions,))
             gc = self.global_coef * np.random.random_sample((self.dimensions,))
             
-            new_vel = self.momentum_coef * current_velocity 
-            new_vel = new_vel + (pc * (best_personal_location - current_location))
-            new_vel = new_vel + (ic * (best_informant_location - current_location))
-            new_vel = new_vel + (gc * (best_global_location - current_location))
-            
+            new_vel = self.momentum_coef * current_velocity
+            if self.rps: 
+                rot_matrix = self.get_rotation_matrix(self.dimensions, self.rot_angle, self.axes_rot_percent * self.dimensions)
+                t_rot_matrix = rot_matrix.transpose()   
+                new_vel = new_vel + np.dot((pc * np.dot((best_personal_location - current_location), t_rot_matrix)), rot_matrix)
+                new_vel = new_vel + np.dot((ic * np.dot((best_informant_location - current_location), t_rot_matrix)), rot_matrix)
+                if gc.all() != 0.0:
+                    new_vel = new_vel + np.dot((gc * np.dot((best_global_location - current_location), t_rot_matrix)), rot_matrix)               
+            else:
+                new_vel = new_vel + pc * (best_personal_location - current_location)
+                new_vel = new_vel + ic * (best_informant_location - current_location)
+                new_vel = new_vel + gc * (best_global_location - current_location)    
             #This segment of the code changes the velocity if the result does not respect the boundaries
             new_velocity = copy.deepcopy(list(new_vel))        
             for d in xrange(self.dimensions):
-                if self.l_boundaries:
+                if self.l_boundaries and not self.loops[d]:
                     if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) < self.lower_bounds[d]:
                         if (self.movement_step * new_velocity[d]) != 0.0:
                             reductor = (self.lower_bounds[d] - self.swarm_location[p][d]) / (self.movement_step * new_velocity[d]) * 0.99
                             new_velocity = [di * reductor for di in new_velocity] #reductor multiplied to all dimensions in order to preserve velocity direction                         
-                if self.u_boundaries:                
+                if self.u_boundaries and not self.loops[d]:                
                     if self.swarm_location[p][d] + (self.movement_step * new_velocity[d]) > self.upper_bounds[d]: 
                         if (self.movement_step * new_velocity[d]) != 0.0:
                             reductor = (self.upper_bounds[d] - self.swarm_location[p][d]) / (self.movement_step * new_velocity[d]) * 0.99
@@ -154,6 +190,9 @@ class PSO:
         current_locations = np.matrix(copy.deepcopy(self.swarm_location))
         velocity = np.matrix(copy.deepcopy(self.swarm_velocity))
         self.swarm_location = np.matrix.tolist(current_locations + (self.movement_step * velocity))
+        for d in xrange(self.dimensions):
+            if self.loops[d]:
+                print("Not implemented yet :(")
                  
     def update_best(self):
         for p in xrange(self.swarm_size):
